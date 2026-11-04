@@ -40,7 +40,6 @@ public class SimpleCompatibilityManager extends QuickShopInstanceHolder implemen
     private static final Map<String, Class<? extends CompatibilityModule>> MODULE_MAP = new HashMap<>(2);
 
     static {
-        MODULE_MAP.put("NoCheatPlus", NCPCompatibilityModule.class);
         MODULE_MAP.put("Spartan", SpartanCompatibilityModule.class);
     }
 

@@ -384,7 +384,7 @@
         </repository>
         <repository>
             <id>placeholderapi</id>
-            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+            <url>https://repo.extendedclip.com/releases/</url>
         </repository>
         <repository>
             <id>EnderZone</id>
@@ -406,7 +406,7 @@
         </repository>
         <repository>
             <id>papermc</id>
-            <url>https://papermc.io/repo/repository/maven-public/</url>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
             <id>bg-repo</id>
@@ -428,10 +428,12 @@
         <id>Sparky</id>
         <url>https://nexus.sparky.ac/repository/Sparky/</url>
         </repository>-->
+        <!--
         <repository>
             <id>songoda</id>
             <url>https://repo.craftaro.com/repository/public/</url>
         </repository>
+        -->
         <!--MineDown -->
         <repository>
             <id>minebench-repo</id>
@@ -534,11 +536,13 @@
             <groupId>com.github.jikoo.OpenInv</groupId>
             <artifactId>openinvapi</artifactId>
             <version>4.3.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/OpenInv.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.26</version>
+            <version>1.18.38</version>
             <scope>provided</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
@@ -548,12 +552,15 @@
             <version>24.0.1</version>
             <scope>provided</scope>
         </dependency>
+        <!-- nocheatplus repo is gone; soft-depend stays in plugin.yml -->
+        <!--
         <dependency>
             <groupId>fr.neatmonster</groupId>
             <artifactId>nocheatplus</artifactId>
             <version>3.17-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        -->
         <dependency>
             <groupId>me.minebuilders</groupId>
             <artifactId>clearlag</artifactId>
@@ -565,14 +572,9 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.4</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>annotations</artifactId>
-                    <groupId>org.jetbrains</groupId>
-                </exclusion>
-            </exclusions>
+            <version>2.11.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/PlaceholderAPI-2.11.6.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.github.angeschossen</groupId>
@@ -773,17 +775,13 @@
             <version>0.1.1.17-PRE-2</version>
             <systemPath>${project.basedir}/lib/TNE-0.1.1.17-PRE-2.jar</systemPath>
         </dependency>
+        <!-- Songoda/Craftaro repos are gone; soft-depend stays in plugin.yml -->
+        <!--
         <dependency>
             <groupId>com.songoda</groupId>
             <artifactId>skyblock</artifactId>
             <version>2.3.30</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>MVdWPlaceholderAPI</artifactId>
-                    <groupId>be.maximvdw</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.songoda</groupId>
@@ -791,6 +789,7 @@
             <version>2.6.18</version>
             <scope>provided</scope>
         </dependency>
+        -->
         <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
         <dependency>
             <groupId>commons-codec</groupId>
