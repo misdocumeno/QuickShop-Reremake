@@ -37,7 +37,21 @@ jobs:
             esac
           done
           test -n "$(find dist -name '*.jar' -print -quit)"
+      - name: Fail if this tag already has release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            count="$(gh release view "$tag" --json assets --jq '.assets | length')"
+            if [ "$count" != "0" ]; then
+              echo "tag $tag already has $count asset(s); bump the version instead of overwriting" >&2
+              exit 1
+            fi
+          fi
 
       - uses: softprops/action-gh-release@v2
         with:
+          overwrite_files: false
           files: dist/*.jar
